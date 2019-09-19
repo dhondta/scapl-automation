@@ -6,9 +6,8 @@ from kombu import Queue, Exchange
 sys.path.insert(0, os.getcwd())
 
 class ScaplRouter(object):
-
     def route_for_task(self, task, args=None, kwargs=None):
-	print task
+        print(task)
         if task == 'GenericSearch':
 	    return {'exchange': 'scapl',
                     'exchange_type': 'topic',
@@ -21,7 +20,7 @@ class ScaplRouter(object):
 
 
 default_exchange = Exchange('default', type='direct')
-scapl_exchange = Exchange('scapl', type='topic')
+scapl_exchange   = Exchange('scapl', type='topic')
 
 CELERY_TIMEZONE = 'Europe/Paris'
 CELERY_DEFAULT_QUEUE = 'default'
